@@ -8,33 +8,17 @@ Static PHP project where you can deploy an automatic HTTP REST API based on any 
 
 Download the project (unzipped) and place it wherever you want in your static PHP server.
 
+## Usage 
 
-## Services
+Below are described the key points to understand to use kawabunga.
 
-Kawabunga reserves 1 directory namespace, and uses as the only public dispatcher the `index.php` for all the server operations: REST and AUTH. You only need to know how to use the parameters.
+### Unique endpoint
 
-Through the same `index.php` endpoint, you can access several JSON-based webservices included by default in order to complete the lifecycle of an authorization-oriented REST application.
+Kawabunga reserves 1 directory as namespace. This is because it uses the `index.php` for all the operations it can execute.
 
-- The basic CRUD REST services, these include:
-   - schema
-   - select
-   - insert
-   - update
-   - delete
-- The basic AUTHENTICATION services, these include:
-   - register account
-   - confirm account
-   - login session
-   - refresh session
-   - logout session
-   - forgot credentials
-   - recover credentials
-   - change password
-   - unregister account
+Once you place the project in an endpoint, you can start making requests to its `index.php`.
 
-All of these services are targeting the same PHP file: `index.php`. The only thing it changes are the parameters passed to it.
-
-### Service operation
+### Multiple operations
 
 The `operation` parameter tells the server which operation wants the user to commit.
 
