@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS sesiones;
+DROP TABLE IF EXISTS grupos_y_permisos;
+DROP TABLE IF EXISTS usuarios_y_grupos;
+DROP TABLE IF EXISTS permisos;
+DROP TABLE IF EXISTS grupos;
+DROP TABLE IF EXISTS usuarios;

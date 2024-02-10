@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const subcommand = process.argv[2];
+const print_help = function() {
+    console.log("[Kawabunga CLI]");
+    console.log("[Usage]");
+    console.log("  kawabunga {command} ...{parameters}");
+    console.log("[Comands]");
+    const available_subcommands = fs.readdirSync(__dirname + "/commands");
+    for(let i=0; i<available_subcommands.length; i++) {
+        const available_subcommand = available_subcommands[i];
+        console.log("  kawabunga " + available_subcommand.replace(/\.js$/g, ""));
+    }
+}
+
+if(typeof subcommand === "undefined") {
+    return print_help();
+}

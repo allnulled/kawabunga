@@ -1,0 +1,15 @@
+{
+  "name": "kawabunga",
+  "version": "1.0.0",
+  "description": "The `kawabunga` project is a static PHP project where you can deploy an automatic HTTP REST API based on a MySQL database.",
+  "bin": {
+    "kawabunga": "./scripts/bin/kawabunga"
+  },
+  "main": "index.php",
+  "scripts": {
+    "test": "npx mocha scripts/test/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
