@@ -95,13 +95,13 @@ The AUTH operations are the following:
 
 For kawabunga to work properly with the authentication and authorization system, which is optional to use. you need to have on your database some tables. These are the tables:
 
-- kw_user_to_confirm
-- kw_user
-- kw_group
-- kw_permission
-- kw_user_and_kw_group
-- kw_group_and_kw_permission
-- kw_session
+- `kw_user_to_confirm`
+- `kw_user`
+- `kw_group`
+- `kw_permission`
+- `kw_user_and_kw_group`
+- `kw_group_and_kw_permission`
+- `kw_session`
 
 The tables are prefixed with `kw_` which stands for kawabunga.
 
