@@ -1,5 +1,6 @@
 <?php
 
+define("PHP_ENV", "test");
 define("MYSQL_HOST", "127.0.0.1");
 define("MYSQL_PORT", "3306");
 define("MYSQL_USER", "root");
@@ -8,7 +9,6 @@ define("MYSQL_PASSWORD", "");
 define("MYSQL_DATABASE", "ejemplo");
 define("FRAMEWORK_NAME", "kawabunga");
 define("FRAMEWORK_VERSION", "0.0.1");
-define("PHP_ENV", "test");
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -235,50 +235,50 @@ class Auth {
             return false;
         }
         $data = $this->framework->database->query("SELECT"
-        . "  sesiones.id AS 'sesiones.id'," 
-        . "  sesiones.id_usuario AS 'sesiones.id_usuario'," 
-        . "  sesiones.token AS 'sesiones.token'," 
-        . "  grupos.id AS 'grupos.id'," 
-        . "  grupos.nombre AS 'grupos.nombre'," 
-        . "  grupos.descripcion AS 'grupos.descripcion'," 
-        . "  permisos.id AS 'permisos.id'," 
-        . "  permisos.nombre AS 'permisos.nombre'," 
-        . "  permisos.descripcion AS 'permisos.descripcion'" 
-        . " FROM sesiones"
-        . " LEFT JOIN usuarios ON sesiones.id_usuario = usuarios.id"
-        . " LEFT JOIN usuarios_y_grupos ON usuarios_y_grupos.id_usuario = usuarios.id"
-        . " LEFT JOIN grupos ON grupos.id = usuarios_y_grupos.id_grupo"
-        . " LEFT JOIN grupos_y_permisos ON grupos_y_permisos.id_grupo = grupos.id"
-        . " LEFT JOIN permisos ON grupos_y_permisos.id_permiso = permisos.id"
-        . " WHERE token = ?", [$authentication]);
+        . "  kw_session.id AS 'kw_session.id'," 
+        . "  kw_session.id_kw_user AS 'kw_session.id_kw_user'," 
+        . "  kw_session.token AS 'kw_session.token'," 
+        . "  kw_group.id AS 'kw_group.id'," 
+        . "  kw_group.name AS 'kw_group.name'," 
+        . "  kw_group.description AS 'kw_group.description'," 
+        . "  kw_permission.id AS 'kw_permission.id'," 
+        . "  kw_permission.name AS 'kw_permission.name'," 
+        . "  kw_permission.description AS 'kw_permission.description'" 
+        . " FROM kw_session"
+        . " LEFT JOIN kw_user ON kw_session.id_kw_user = kw_user.id"
+        . " LEFT JOIN kw_user_and_kw_group ON kw_user_and_kw_group.id_kw_user = kw_user.id"
+        . " LEFT JOIN kw_group ON kw_group.id = kw_user_and_kw_group.id_kw_group"
+        . " LEFT JOIN kw_group_and_kw_permission ON kw_group_and_kw_permission.id_kw_group = kw_group.id"
+        . " LEFT JOIN kw_permission ON kw_group_and_kw_permission.id_kw_permission = kw_permission.id"
+        . " WHERE kw_session.token = ?", [$authentication]);
         $this->framework->request->authentication = $data;
     }
     public function register_account($name, $password, $email) {
-
+        // @TODO
     }
     public function confirm_account($email, $confirmation_token) {
-
+        // @TODO
     }
     public function login_session($email, $password) {
-
+        // @TODO
     }
     public function refresh_session($token) {
-
+        // @TODO
     }
     public function logout_session($token) {
-
+        // @TODO
     }
     public function forgot_credentials($email) {
-
+        // @TODO
     }
     public function recover_credentials($email, $recovery_token) {
-
+        // @TODO
     }
     public function change_password($email, $password, $password_confirmation) {
-
+        // @TODO
     }
     public function unregister_account($email, $password) {
-
+        // @TODO
     }
 }
 

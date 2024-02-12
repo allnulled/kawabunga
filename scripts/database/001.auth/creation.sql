@@ -1,48 +1,48 @@
-CREATE TABLE IF NOT EXISTS usuarios_por_confirmar (
+CREATE TABLE IF NOT EXISTS kw_user_to_confirm (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(255) UNIQUE,
-    correo VARCHAR(255) UNIQUE,
-    contrasenya VARCHAR(255)
+    name VARCHAR(255) UNIQUE,
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS usuarios (
+CREATE TABLE IF NOT EXISTS kw_user (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(255) UNIQUE,
-    correo VARCHAR(255) UNIQUE,
-    contrasenya VARCHAR(255)
+    name VARCHAR(255) UNIQUE,
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255)
 );
 
-CREATE TABLE IF NOT EXISTS grupos (
+CREATE TABLE IF NOT EXISTS kw_group (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(255) UNIQUE,
-    descripcion TEXT
+    name VARCHAR(255) UNIQUE,
+    description TEXT
 );
 
-CREATE TABLE IF NOT EXISTS permisos (
+CREATE TABLE IF NOT EXISTS kw_permission (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(255) UNIQUE,
-    descripcion TEXT
+    name VARCHAR(255) UNIQUE,
+    description TEXT
 );
 
-CREATE TABLE IF NOT EXISTS usuarios_y_grupos (
+CREATE TABLE IF NOT EXISTS kw_user_and_kw_group (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_usuario INTEGER,
-    id_grupo INTEGER,
-    FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
-    FOREIGN KEY (id_grupo) REFERENCES grupos(id)
+    id_kw_user INTEGER,
+    id_kw_group INTEGER,
+    FOREIGN KEY (id_kw_user) REFERENCES kw_user(id),
+    FOREIGN KEY (id_kw_group) REFERENCES kw_group(id)
 );
 
-CREATE TABLE IF NOT EXISTS grupos_y_permisos (
+CREATE TABLE IF NOT EXISTS kw_group_and_kw_permission (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_grupo INTEGER,
-    id_permiso INTEGER,
-    FOREIGN KEY (id_grupo) REFERENCES grupos(id),
-    FOREIGN KEY (id_permiso) REFERENCES permisos(id)
+    id_kw_group INTEGER,
+    id_kw_permission INTEGER,
+    FOREIGN KEY (id_kw_group) REFERENCES kw_group(id),
+    FOREIGN KEY (id_kw_permission) REFERENCES kw_permission(id)
 );
 
-CREATE TABLE IF NOT EXISTS sesiones (
+CREATE TABLE IF NOT EXISTS kw_session (
 	id INTEGER PRIMARY KEY AUTO_INCREMENT,
-	id_usuario INTEGER,
+	id_kw_user INTEGER,
 	token VARCHAR(255),
-	FOREIGN KEY (id_usuario) REFERENCES usuarios (id)
+	FOREIGN KEY (id_kw_user) REFERENCES kw_user (id)
 );
